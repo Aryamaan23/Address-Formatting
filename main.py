@@ -3,9 +3,12 @@ import requests
 from opencage.geocoder import OpenCageGeocode
 from opencage.geocoder import InvalidInputError, RateLimitExceededError, UnknownError
 from geopy.geocoders import Nominatim
+from pydantic import BaseModel
 from urllib.request import urlopen
 import json
 import FCMManager as fcm
+from indic_transliteration import sanscript
+from indic_transliteration.sanscript import transliterate
 app = FastAPI()
 geolocator = Nominatim(user_agent="geoapiExercises")
 
@@ -19,12 +22,14 @@ geocoder = OpenCageGeocode(key)
 #print(results)
 #my_geo = results[0]['geometry']['location']
 #print("Longitude:",my_geo['lng'],"\n","Latitude:",my_geo['lat'])
+
+
  
 @app.get("/")
 def first_example():
     return {"Corrected Address": "Hello World!"}
 
-@app.get("/addressformatter/{address}")
+@app.post("/addressformatter/")
 async def addressformatter(address: str):
     results = geocoder.geocode(address)
     latitude=results[0]['geometry']['lat']
@@ -65,10 +70,3 @@ async def addressformatter(address: str):
     
     #return {"address": address, "latitude": results[0]['geometry']['lat'], "longitude":results[0]['geometry']['lng'],"Country Code":results[0]['components']['country_code']}
 
-
-
-
-@app.put("/sendnotifications")
-def sendnotifications():
-    return {"message": fcm.sendPush("The user wants to update his address.Do you agree with this point?")}
-    return {"Corrected Address": "Hello World!"}
