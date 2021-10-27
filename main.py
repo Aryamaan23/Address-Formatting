@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 import requests
 from opencage.geocoder import OpenCageGeocode
+from opencage.geocoder import InvalidInputError, RateLimitExceededError, UnknownError
 from geopy.geocoders import Nominatim
+from urllib.request import urlopen
+import json
+import FCMManager as fcm
 app = FastAPI()
 geolocator = Nominatim(user_agent="geoapiExercises")
 
@@ -25,14 +29,46 @@ async def addressformatter(address: str):
     results = geocoder.geocode(address)
     latitude=results[0]['geometry']['lat']
     longitude=results[0]['geometry']['lng']
-    """
-    print(u'%f;%f;%s;%s' % (results[0]['geometry']['lat'], 
-                        results[0]['geometry']['lng'],
-                        results[0]['components']['country_code']))
+    #print(u'%f;%f;%s;%s' % (results[0]['geometry']['lat'], 
+                        #results[0]['geometry']['lng'],
+                        #results[0]['components']['country_code']))
     
     location = geolocator.reverse(str(latitude)+","+str(longitude))
     print(location)
     address = location.raw['address']
     print(address)
-    """
-    return {"address": address, "latitude": results[0]['geometry']['lat'], "longitude":results[0]['geometry']['lng'],"Country Code":results[0]['components']['country_code']}
+    
+    try:
+        results = geocoder.reverse_geocode(latitude, longitude, language='en', no_annotations='1')
+        print(results)
+        if results and len(results):
+           return {"Formatted address": results[0]['formatted'],"address": address}
+    except RateLimitExceededError as ex:
+           print(ex)
+    #URL = "https://revgeocode.search.hereapi.com/v1/revgeocode"
+    #api_key = '1KA1QFOkN14SsIr0AtksGQG9RXK0dC8noQOHQrEfPf0'
+    #PARAMS = {
+	#		'at': '{},{}'.format(latitude,longitude),
+	#		'apikey': api_key
+    #    }
+
+    # Sending get request and saving the response as response object 
+    #r = requests.get(url = URL, params = PARAMS) 
+  
+    # Extracting data in json format 
+    #data = r.json() 
+
+    #Taking out title from JSON
+    #address = data['items'][0]['title'] 
+    #return {"Address with all the fields":data}
+
+    
+    #return {"address": address, "latitude": results[0]['geometry']['lat'], "longitude":results[0]['geometry']['lng'],"Country Code":results[0]['components']['country_code']}
+
+
+
+
+@app.put("/sendnotifications")
+def sendnotifications():
+    return {"message": fcm.sendPush("The user wants to update his address.Do you agree with this point?")}
+    return {"Corrected Address": "Hello World!"}
