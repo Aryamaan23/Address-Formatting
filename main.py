@@ -33,6 +33,16 @@ def first_example():
 
 @app.post("/addressformatter/")
 async def addressformatter(address: str):
+    list=address.split(',')
+    joined_string = ",".join(list[0:3])
+    print(list)
+    print(joined_string)
+    first_component_addr=list[0]
+    second_component_addr=list[1]
+    third_component_addr=list[2]
+    print(first_component_addr)
+    print(second_component_addr)
+    print(third_component_addr)
     results = geocoder.geocode(address)
     latitude=results[0]['geometry']['lat']
     longitude=results[0]['geometry']['lng']
@@ -49,7 +59,8 @@ async def addressformatter(address: str):
         results = geocoder.reverse_geocode(latitude, longitude, language='en', no_annotations='1')
         print(results)
         if results and len(results):
-           return {"Formatted address": results[0]['formatted'],"address": address}
+           res=results[0]['formatted'].replace("unnamed road",joined_string)
+           return {"Formatted address": res,"address": address}
     except RateLimitExceededError as ex:
            print(ex)
     #URL = "https://revgeocode.search.hereapi.com/v1/revgeocode"
@@ -81,14 +92,13 @@ async def addressformatter(address: str , languageoption: str):
     to_lang=''
     address2=""
     address2= translator.translate({address},src= "gu",dest= "en")
-
    
     print(address2)
     """
 
 
     
-
+    print(address.split(','))
     results = geocoder.geocode(address)
     latitude=results[0]['geometry']['lat']
     longitude=results[0]['geometry']['lng']
