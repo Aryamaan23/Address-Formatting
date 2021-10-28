@@ -33,3 +33,5 @@ print(u'%f;%f;%s;%s' % (results[0]['geometry']['lat'],
 
 results2 = geocoder.reverse_geocode(25.448940,81.833290)
 print(results2)
+
+
