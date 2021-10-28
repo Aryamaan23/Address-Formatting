@@ -107,8 +107,8 @@ async def addressformatter(text: str):
     if(y.lang=="hi"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.DEVANAGARI)
 
-        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.DEVANAGARI)
-        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.DEVANAGARI)
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.DEVANAGARI)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.DEVANAGARI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.DEVANAGARI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.DEVANAGARI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.DEVANAGARI)
@@ -121,8 +121,8 @@ async def addressformatter(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.DEVANAGARI)
 
         final_updated={"address": {
-            "amenity": y,
-            "road": z,
+            #"amenity": y,
+            #"road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -140,8 +140,8 @@ async def addressformatter(text: str):
     elif(y.lang=="gu"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.GUJARATI)
 
-        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GUJARATI)
-        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GUJARATI)
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GUJARATI)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GUJARATI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.GUJARATI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.GUJARATI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.GUJARATI)
@@ -154,8 +154,8 @@ async def addressformatter(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.GUJARATI)
 
         final_updated={"address": {
-            "amenity": y,
-            "road": z,
+            #"amenity": y,
+            #"road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -169,7 +169,292 @@ async def addressformatter(text: str):
         }
     }
 
-    """
+
+    elif(y.lang=="bn"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.BENGALI)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.BENGALI)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.BENGALI)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.BENGALI)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.BENGALI)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.BENGALI)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.BENGALI)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.BENGALI)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.BENGALI)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.BENGALI)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.BENGALI)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.BENGALI)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.BENGALI)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+    elif(y.lang=="bn"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.BENGALI)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.BENGALI)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.BENGALI)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.BENGALI)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.BENGALI)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.BENGALI)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.BENGALI)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.BENGALI)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.BENGALI)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.BENGALI)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.BENGALI)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.BENGALI)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.BENGALI)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+
+    elif(y.lang=="kn"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.KANNADA)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.KANNADA)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.KANNADA)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.KANNADA)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.KANNADA)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.KANNADA)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.KANNADA)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.KANNADA)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.KANNADA)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.KANNADA)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.KANNADA)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.KANNADA)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.KANNADA)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+
+    
+    elif(y.lang=="ml"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.MALAYALAM)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.MALAYALAM)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.MALAYALAM)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.MALAYALAM)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.MALAYALAM)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.MALAYALAM)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.MALAYALAM)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.MALAYALAM)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.MALAYALAM)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.MALAYALAM)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.MALAYALAM)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.MALAYALAM)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.MALAYALAM)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+
+    elif(y.lang=="te"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.TELUGU)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.TELUGU)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.TELUGU)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.TELUGU)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.TELUGU)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.TELUGU)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.TELUGU)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.TELUGU)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.TELUGU)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.TELUGU)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.TELUGU)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.TELUGU)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.TELUGU)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+    elif(y.lang=="ta"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.TAMIL)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.TAMIL)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.TAMIL)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.TAMIL)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.TAMIL)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.TAMIL)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.TAMIL)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.TAMIL)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.TAMIL)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.TAMIL)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.TAMIL)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.TAMIL)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.TAMIL)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+
+    elif(y.lang=="or"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.ORIYA)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.ORIYA)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.ORIYA)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.ORIYA)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.ORIYA)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.ORIYA)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.ORIYA)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.ORIYA)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.ORIYA)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.ORIYA)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.ORIYA)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.ORIYA)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.ORIYA)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            #"neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+
+
+    elif(y.lang=="pa"):
+        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.GURMUKHI)
+
+        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GURMUKHI)
+        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GURMUKHI)
+        a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.GURMUKHI)
+        b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.GURMUKHI)
+        c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.GURMUKHI)
+        d=transliterate(xa['city'], sanscript.ITRANS, sanscript.GURMUKHI)
+        e=transliterate(xa['county'], sanscript.ITRANS, sanscript.GURMUKHI)
+        f=transliterate(xa['state_district'], sanscript.ITRANS, sanscript.GURMUKHI)
+        g=transliterate(xa['state'], sanscript.ITRANS, sanscript.GURMUKHI)
+        h=transliterate(xa['postcode'], sanscript.ITRANS, sanscript.GURMUKHI)
+        i=transliterate(xa['country'], sanscript.ITRANS, sanscript.GURMUKHI)
+        j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.GURMUKHI)
+
+        final_updated={"address": {
+            #"amenity": y,
+            #"road": z,
+            "neighbourhood": a,
+            "suburb": b,
+            "city_district": c,
+            "city": d,
+            "county": e,
+            "state_district": f,
+            "state": g,
+            "postcode": h,
+            "country": i,
+            "country_id": j
+        }
+    }
+
+   
+
+    if results and len(results):
+        return {"Formatted address": x,"address": final_updated}
+    #except RateLimitExceededError as ex:
+          #print(ex)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
     am= transliterate("amenity",sanscript.ITRANS, sanscript.DEVANAGARI)
     am2=transliterate("road",sanscript.ITRANS, sanscript.DEVANAGARI)
     am3=transliterate("neighbourhood",sanscript.ITRANS, sanscript.DEVANAGARI)
@@ -198,16 +483,7 @@ async def addressformatter(text: str):
 
         }
     }
-    """
-    if results and len(results):
-        return {"Formatted address": x,"address": final_updated}
-    #except RateLimitExceededError as ex:
-          #print(ex)
-
-
-
-
-
+"""
 
 
 

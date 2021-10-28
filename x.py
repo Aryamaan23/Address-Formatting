@@ -5,7 +5,7 @@ from googletrans import Translator
 
 translator=Translator()
 
-text="ઓસ્ટિન ટાઉન, બેંગલોર, બેંગલોર ઈસ્ટ, 560095"
+text="ਆਸਟਿਨ ਟਾਊਨ, ਬੰਗਲੌਰ, ਬੰਗਲੌਰ ਈਸਟ, 560095"
 y=translator.detect(text)
 print(y.lang)
 x=translator.translate(text,src='en',dest='hi')
