@@ -37,7 +37,7 @@ Many API endpoints return the JSON representation of the resources created or ed
 
 ```javascript
 {
-  "Formatted Address" : string,
+  "Formatted Address": "string",
   "address": {
     "city": "string",
     "county": "string",
