@@ -10,7 +10,7 @@ from indic_transliteration import sanscript
 from indic_transliteration.sanscript import transliterate
 import googletrans
 from googletrans import Translator
-app = FastAPI()
+
 geolocator = Nominatim(user_agent="geoapiExercises")
 
 key = 'd908ec2a841244e0892ac9b12db8a453'
@@ -19,15 +19,16 @@ geocoder = OpenCageGeocode(key)
 
 translator=Translator()
 
- 
-@app.get("/")
-def first_example():
-    return {"Corrected Address": "Hello World!"}
 
 
+app = FastAPI(title="Address Formatter",
+              description="Optimize your address",
+              version="0.0.1",
+              )
 
-@app.post("/addressformatter/")
-async def addressformatterlanguage(address: str):
+
+@app.post("/addressformatter/",tags=["Address-Formatting"],description="Optimize your address in english language")
+async def addressformattereng(address: str):
     list=address.split(',')
     joined_string = ",".join(list[0:2])
     print(list)
@@ -67,8 +68,8 @@ async def addressformatterlanguage(address: str):
     
 
 
-@app.post("/addressformatterregionallanguages/")
-async def addressformatter(text: str):
+@app.post("/addressformatterregionallanguages/",tags=["Address-Formatting"],description="Optimize your address in regional language")
+async def addressformatterregional(text: str):
     y=translator.detect(text)
     address2= translator.translate(text,src=y.lang,dest= "en")
     xa=address2.text
