@@ -6,7 +6,6 @@ from geopy.geocoders import Nominatim
 from pydantic import BaseModel
 from urllib.request import urlopen
 import json
-import FCMManager as fcm 
 from indic_transliteration import sanscript
 from indic_transliteration.sanscript import transliterate
 import googletrans
