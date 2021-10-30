@@ -56,6 +56,10 @@ async def addressformattereng(address: str):
         print(results)
         if results and len(results):
            res=results[0]['formatted'].replace("unnamed road",joined_string)
+           house_noo=joined_string
+           list2=house_noo.split(',')
+           joined_string2 = ",".join(list[0:1])
+           address["house no."]=joined_string2
            return {"Formatted address": res,"address": address}
     except RateLimitExceededError as ex:
            print(ex)
@@ -105,10 +109,9 @@ async def addressformatterregional(text: str):
     print(results)
     #x= translator.translate(results[0]['formatted'],src='en',dest=y.lang)
     if(y.lang=="hi"):
-        x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.DEVANAGARI)
-
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.DEVANAGARI)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.DEVANAGARI)
+        x=transliterate(results[0]['formatted'],sanscript.ITRANS,sanscript.DEVANAGARI )
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.DEVANAGARI)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.DEVANAGARI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.DEVANAGARI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.DEVANAGARI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.DEVANAGARI)
@@ -121,8 +124,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.DEVANAGARI)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -140,8 +143,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="gu"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.GUJARATI)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GUJARATI)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GUJARATI)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GUJARATI)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GUJARATI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.GUJARATI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.GUJARATI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.GUJARATI)
@@ -154,8 +157,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.GUJARATI)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -173,8 +176,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="bn"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.BENGALI)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.BENGALI)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.BENGALI)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.BENGALI)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.BENGALI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.BENGALI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.BENGALI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.BENGALI)
@@ -187,8 +190,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.BENGALI)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -205,8 +208,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="bn"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.BENGALI)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.BENGALI)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.BENGALI)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.BENGALI)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.BENGALI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.BENGALI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.BENGALI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.BENGALI)
@@ -219,8 +222,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.BENGALI)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -238,8 +241,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="kn"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.KANNADA)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.KANNADA)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.KANNADA)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.KANNADA)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.KANNADA)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.KANNADA)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.KANNADA)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.KANNADA)
@@ -252,8 +255,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.KANNADA)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -272,8 +275,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="ml"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.MALAYALAM)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.MALAYALAM)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.MALAYALAM)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.MALAYALAM)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.MALAYALAM)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.MALAYALAM)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.MALAYALAM)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.MALAYALAM)
@@ -286,8 +289,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.MALAYALAM)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -305,8 +308,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="te"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.TELUGU)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.TELUGU)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.TELUGU)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.TELUGU)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.TELUGU)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.TELUGU)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.TELUGU)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.TELUGU)
@@ -319,8 +322,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.TELUGU)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -337,8 +340,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="ta"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.TAMIL)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.TAMIL)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.TAMIL)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.TAMIL)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.TAMIL)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.TAMIL)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.TAMIL)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.TAMIL)
@@ -351,8 +354,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.TAMIL)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
@@ -370,8 +373,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="or"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.ORIYA)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.ORIYA)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.ORIYA)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.ORIYA)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.ORIYA)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.ORIYA)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.ORIYA)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.ORIYA)
@@ -384,9 +387,9 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.ORIYA)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
-            #"neighbourhood": a,
+            "amenity": y,
+            "road": z,
+            "neighbourhood": a,
             "suburb": b,
             "city_district": c,
             "city": d,
@@ -404,8 +407,8 @@ async def addressformatterregional(text: str):
     elif(y.lang=="pa"):
         x=transliterate(results[0]['formatted'], sanscript.ITRANS, sanscript.GURMUKHI)
 
-        #y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GURMUKHI)
-        #z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GURMUKHI)
+        y=transliterate(xa['amenity'], sanscript.ITRANS, sanscript.GURMUKHI)
+        z=transliterate(xa['road'], sanscript.ITRANS, sanscript.GURMUKHI)
         a=transliterate(xa['neighbourhood'], sanscript.ITRANS, sanscript.GURMUKHI)
         b=transliterate(xa['suburb'], sanscript.ITRANS, sanscript.GURMUKHI)
         c=transliterate(xa['city_district'], sanscript.ITRANS, sanscript.GURMUKHI)
@@ -418,8 +421,8 @@ async def addressformatterregional(text: str):
         j=transliterate(xa['country_code'], sanscript.ITRANS, sanscript.GURMUKHI)
 
         final_updated={"address": {
-            #"amenity": y,
-            #"road": z,
+            "amenity": y,
+            "road": z,
             "neighbourhood": a,
             "suburb": b,
             "city_district": c,
