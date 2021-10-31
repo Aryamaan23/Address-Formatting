@@ -29,13 +29,26 @@ POST /https://addressformatteruidai.herokuapp.com/docs#/Address-Formatting/addre
 
 | Parameter | Type 
 | :--- | :--- |
-| `address` | `string` | 
+| `address` | `json` | 
+
+#### Request Body
+```json
+{
+  "building": "string",
+  "street": "string",
+  "landmark": "string",
+  "locality": "string",
+  "vtc": "string",
+  "district": "string",
+  "state": "string"
+}
+```
 
 #### Response
 
 Many API endpoints return the JSON representation of the resources created or edited. Address Formatter returns a JSON response in the following format:
 
-```javascript
+```json
 {
   "status": 200,
   "data": {
