@@ -8,10 +8,9 @@
 
 
 ## FastAPI Server
-1.Clone the repo in your local machine and setup python environment. Create .env file similar to .env.sample file with all the required fields.
-2. Install all the required packages in python virtual enviroment `pip install requirements.txt`
-3. Run `python main.py` in the root directory of the project.
-4. Add MongoClient UR
+- Clone the repo in your local machine and setup python environment. Create .env file with `API_KEY` of Opencage.
+- Install all the required packages in python virtual enviroment `pip install requirements.txt`
+- Run `python main.py` in the root directory of the project.
 
 ## Architecture
 ![image](https://user-images.githubusercontent.com/60667917/139524901-0a25e1ba-6038-4600-8f88-ec42369715c8.png)
