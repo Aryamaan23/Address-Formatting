@@ -12,11 +12,14 @@ import googletrans
 from googletrans import Translator
 from fastapi import APIRouter, HTTPException
 from fastapi import Body, FastAPI
+import os
+from dotenv import load_dotenv
 
 geolocator = Nominatim(user_agent="geoapiExercises")
 
-key = 'd908ec2a841244e0892ac9b12db8a453'
-geocoder = OpenCageGeocode(key)
+load_dotenv()
+API_KEY=os.getenv("API_KEY")
+geocoder = OpenCageGeocode(API_KEY)
 
 
 translator=Translator()
