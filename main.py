@@ -10,6 +10,7 @@ from indic_transliteration import sanscript
 from indic_transliteration.sanscript import transliterate
 import googletrans
 from googletrans import Translator
+from fastapi import APIRouter, HTTPException
 
 geolocator = Nominatim(user_agent="geoapiExercises")
 
@@ -60,9 +61,12 @@ async def addressformattereng(address: str):
            list2=house_noo.split(',')
            joined_string2 = ",".join(list[0:1])
            address["house no."]=joined_string2
-           return {"Formatted address": res,"address": address}
+           return {"status":200,"data":{"Formatted address": res,"address": address}}
     except RateLimitExceededError as ex:
            print(ex)
+
+
+
 
 
 
@@ -437,134 +441,9 @@ async def addressformatterregional(text: str):
     }
 
    
-
-    if results and len(results):
-        return {"Formatted address": x,"address": final_updated}
-    #except RateLimitExceededError as ex:
-          #print(ex)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-    am= transliterate("amenity",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am2=transliterate("road",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am3=transliterate("neighbourhood",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am4=transliterate("suburb",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am5=transliterate("city_district",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am6=transliterate("city",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am7=transliterate("county",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am8=transliterate("state_district",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am9=transliterate("state",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am10=transliterate("postcode", sanscript.ITRANS, sanscript.DEVANAGARI)
-    am11=transliterate("country",sanscript.ITRANS, sanscript.DEVANAGARI)
-    am12=transliterate("country_code",sanscript.ITRANS, sanscript.DEVANAGARI)
-    final_updated={"address": {
-            am: y,
-            am2: z,
-            am3: a,
-            am4: b,
-            am5: c,
-            am6: d,
-            am7: e,
-            am8: f,
-            am9: g,
-            am10: h,
-            am11: i,
-            am12: j
-
-        }
-    }
-"""
-
-
-
-
-"""
-
-@app.post("/addressformatter/language")
-async def addressformatter(text: str , lang:str):
-    print(text)
-    translate_text1=translator.translate(text,src=lang,dest='en')
-    print(translate_text1)
-    translate_text=translate_text1.text
-    list=translate_text.split(',')
-    joined_string = ",".join(list[0:4])
-    print(list)
-    print(joined_string)
-    first_component_addr=list[0]
-    second_component_addr=list[1]
-    third_component_addr=list[2]
-    print(first_component_addr)
-    print(second_component_addr)
-    print(third_component_addr)
-    results = geocoder.geocode(translate_text)
-    latitude=results[0]['geometry']['lat']
-    longitude=results[0]['geometry']['lng']
-    #print(u'%f;%f;%s;%s' % (results[0]['geometry']['lat'], 
-                        #results[0]['geometry']['lng'],
-                        #results[0]['components']['country_code']))
-    
-    text = geolocator.reverse(str(latitude)+","+str(longitude))
-    print(text)
-    translate_text= text.raw['address']
-    print(translate_text)
-    
     try:
-        text1 = geocoder.reverse_geocode(latitude, longitude, language='en', no_annotations='1')
-        print(text1)
-        if text1 and len(text1):
-           text2=text1[0]['formatted'].replace("unnamed road",joined_string)
-           #translated_addr= translator.translate(res,lang_tgt=lang)
-           translated_addr=translator.translate(text,src='en',dest=lang)
-           return {"Formatted address": translated_addr,"address": translate_text}
+       if results and len(results):
+        return {"status":200,"data":{"Formatted address": x,"address": final_updated}}
     except RateLimitExceededError as ex:
-           print(ex)
-
-"""
-
-"""
-
-#URL = "https://revgeocode.search.hereapi.com/v1/revgeocode"
-    #api_key = '1KA1QFOkN14SsIr0AtksGQG9RXK0dC8noQOHQrEfPf0'
-    #PARAMS = {
-	#		'at': '{},{}'.format(latitude,longitude),
-	#		'apikey': api_key
-    #    }
-
-    # Sending get request and saving the response as response object 
-    #r = requests.get(url = URL, params = PARAMS) 
-  
-    # Extracting data in json format 
-    #data = r.json() 
-
-    #Taking out title from JSON
-    #address = data['items'][0]['title'] 
-    #return {"Address with all the fields":data}
-
-    
-    #return {"address": address, "latitude": results[0]['geometry']['lat'], "longitude":results[0]['geometry']['lng'],"Country Code":results[0]['components']['country_code']}
-
-
-
-#geo_url = 'http://maps.googleapis.com/maps/api/geocode/json'
-#my_address = {'address': '21 Ramkrishana Road, Burdwan, East Burdwan, West Bengal, India', 
-             #'language': 'en'}
-#response = requests.get(geo_url, params = my_address)
-#results = response.json()['results']
-#print(results)
-#my_geo = results[0]['geometry']['location']
-#print("Longitude:",my_geo['lng'],"\n","Latitude:",my_geo['lat'])
-
-"""
+          print(ex)
+          raise HTTPException(status_code=400, detail=str(e))
