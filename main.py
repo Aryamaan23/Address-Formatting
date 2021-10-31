@@ -13,6 +13,7 @@ from googletrans import Translator
 from fastapi import APIRouter, HTTPException
 from fastapi import Body, FastAPI
 import os
+import fcntl
 from dotenv import load_dotenv
 
 geolocator = Nominatim(user_agent="geoapiExercises")
