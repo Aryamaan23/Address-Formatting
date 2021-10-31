@@ -5,6 +5,14 @@
 -  [Video Demonstration](https://drive.google.com/file/d/1W7t3_yy6i-Whm_kMqNL27vasFH5qVRfF/view?usp=sharing)
 -  [Google Slides Presentation](https://docs.google.com/presentation/d/12xOHlllMnZzDm7Psc9FV188bEZRKF1FIRM8Ce2vzSe4/edit?usp=sharing)
 
+
+
+## FastAPI Server
+1.Clone the repo in your local machine and setup python environment. Create .env file similar to .env.sample file with all the required fields.
+2. Install all the required packages in python virtual enviroment `pip install requirements.txt`
+3. Run `python main.py` in the root directory of the project.
+4. Add MongoClient UR
+
 ## Architecture
 ![image](https://user-images.githubusercontent.com/60667917/139524901-0a25e1ba-6038-4600-8f88-ec42369715c8.png)
 
