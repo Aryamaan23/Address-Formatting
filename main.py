@@ -11,6 +11,7 @@ from indic_transliteration.sanscript import transliterate
 import googletrans
 from googletrans import Translator
 from fastapi import APIRouter, HTTPException
+from fastapi import Body, FastAPI
 
 geolocator = Nominatim(user_agent="geoapiExercises")
 
@@ -29,7 +30,7 @@ app = FastAPI(title="Address Formatter",
 
 
 @app.post("/addressformatter/",tags=["Address-Formatting"],description="Optimize your address in english language")
-async def addressformattereng(address: str):
+async def addressformattereng(address: str =Body(...)):
     list=address.split(',')
     joined_string = ",".join(list[0:2])
     print(list)
@@ -77,7 +78,7 @@ async def addressformattereng(address: str):
 
 
 @app.post("/addressformatterregionallanguages/",tags=["Address-Formatting"],description="Optimize your address in regional language")
-async def addressformatterregional(text: str):
+async def addressformatterregional(text : str=Body(...)):
     y=translator.detect(text)
     address2= translator.translate(text,src=y.lang,dest= "en")
     xa=address2.text
