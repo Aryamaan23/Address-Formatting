@@ -4,6 +4,7 @@ from opencage.geocoder import OpenCageGeocode
 from opencage.geocoder import InvalidInputError, RateLimitExceededError, UnknownError
 from pydantic import BaseModel
 from urllib.request import urlopen
+from geopy.geocoders import Nominatim
 import json
 from indic_transliteration import sanscript
 from indic_transliteration.sanscript import transliterate
@@ -24,7 +25,7 @@ geocoder = OpenCageGeocode(API_KEY)
 
 translator=Translator()
 
-
+geolocator = Nominatim(user_agent="geoapiExercises")
 
 app = FastAPI(title="Address Formatter",
               description="Optimize your address",
@@ -33,7 +34,7 @@ app = FastAPI(title="Address Formatter",
 
 
 @app.post("/addressformatter/",tags=["Address-Formatting"],description="Optimize your address in english language")
-async def addressformattereng(address: str =Body(...)):
+async def addressformattereng(address: str):
     list=address.split(',')
     joined_string = ",".join(list[0:2])
     print(list)
@@ -81,7 +82,7 @@ async def addressformattereng(address: str =Body(...)):
 
 
 @app.post("/addressformatterregionallanguages/",tags=["Address-Formatting"],description="Optimize your address in regional language")
-async def addressformatterregional(text : str=Body(...)):
+async def addressformatterregional(text : str):
     y=translator.detect(text)
     address2= translator.translate(text,src=y.lang,dest= "en")
     xa=address2.text
