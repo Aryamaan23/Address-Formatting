@@ -24,7 +24,7 @@ All API requests require the use OpenCage API key. You can create your own API k
 
 #### 1. Formatting the English Address
 ```http
-POST /localhost:8000/docs#/Address-Formatting/addressformattereng_addressformatter__post
+POST /https://addressformatteruidai.herokuapp.com/docs#/Address-Formatting/addressformattereng_addressformatter__post
 ```
 
 | Parameter | Type 
@@ -37,16 +37,20 @@ Many API endpoints return the JSON representation of the resources created or ed
 
 ```javascript
 {
-  "Formatted Address": "string",
-  "address": {
-    "city": "string",
-    "county": "string",
-    "state_district": "string",
-    "state": "string",
-    "postcode": "string",
-    "country": "string",
-    "country_code": "string"
-    "house no": "string"
+  "status": 200,
+  "data": {
+    "Formatted address": "string",
+    "address": {
+      "suburb": "string",
+      "city": "string",
+      "county": "string",
+      "state_district": "string",
+      "state": "string",
+      "postcode": "string",
+      "country": "string",
+      "country_code": "string",
+      "house no.": "string"
+    }
   }
 }
 ```
@@ -59,7 +63,7 @@ The `address` attribute contains all the details related to address like  zipcod
 #### 2. Formatting the Regional Address
 
 ```http
-POST /http://localhost:8000/docs#/Address-Formatting/addressformatterregional_addressformatterregionallanguages__post
+POST /https://addressformatteruidai.herokuapp.com/docs#/Address-Formatting/addressformatterregional_addressformatterregionallanguages__post
 ```
 
 | Parameter | Type 
@@ -72,21 +76,24 @@ Address Formatter for regional language returns a JSON response in the following
 
 ```javascript
 {
-  "Formatted address": "ग़्ट्ःPष् आउस्तिन्तोव्न्, Oल्द् ऱचे छोउर्से ऱोअद्, आगरम्, Bएन्गलुरु - ५६००९५, ख़र्नतक, ईन्दिअ",
-  "address": {
+  "status": 200,
+  "data": {
+    "Formatted address": "string",
     "address": {
-      "amenity": "ग़्ट्ःPष् आउस्तिन्तोव्न्",
-      "road": "Oल्द् ऱचे छोउर्से ऱोअद्",
-      "neighbourhood": "य़ेल्लगोन्दन्पल्य",
-      "suburb": "आगरम्",
-      "city_district": "Eअस्त् Zओने",
-      "city": "Bएन्गलुरु",
-      "county": "Bअन्गलोरे णोर्थ्",
-      "state_district": "Bअन्गलोरे ऊर्बन्",
-      "state": "ख़र्नतक",
-      "postcode": "- ५६००९५",
-      "country": "ईन्दिअ",
-      "country_id": "इन्"
+      "address": {
+        "amenity": "string",
+        "road": "string",
+        "neighbourhood": "string",
+        "suburb": "string",
+        "city_district": "string",
+        "city": "string",
+        "county": "string",
+        "state_district": "string",
+        "state": "string",
+        "postcode": "string",
+        "country": "string",
+        "country_id": "string"
+      }
     }
   }
 }
