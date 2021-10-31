@@ -13,6 +13,8 @@ from googletrans import Translator
 from dotenv import load_dotenv
 from collections import OrderedDict
 import os
+from pydantic import BaseModel
+from typing import Optional
 
 geolocator = Nominatim(user_agent="geoapiExercises")
 
@@ -26,15 +28,24 @@ app = FastAPI()
 
 translator=Translator()
 
- 
-@app.get("/")
-def first_example():
-    return {"Corrected Address": "Hello World!"}
+
+class Address(BaseModel):
+    building: str
+    street: Optional[str]
+    landmark: Optional[str]
+    locality: str
+    vtc: str
+    district: str
+    state: str
+
+
 
 
 
 @app.post("/addressformatter/")
-async def addressformatterlanguage(address: str):
+async def addressformatterlanguage(address1: Address):
+    address=str(address1.building +"," + address1.street+","+address1.locality+","+address1.district+","+address1.state)
+    print(address)
     list=address.split(',')
     joined_string = ",".join(list[0:2])
     print(list)
