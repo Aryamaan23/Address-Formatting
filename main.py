@@ -2,7 +2,6 @@ from fastapi import FastAPI
 import requests
 from opencage.geocoder import OpenCageGeocode
 from opencage.geocoder import InvalidInputError, RateLimitExceededError, UnknownError
-from geopy.geocoders import Nominatim
 from pydantic import BaseModel
 from urllib.request import urlopen
 import json
@@ -16,7 +15,7 @@ import os
 import fcntl
 from dotenv import load_dotenv
 
-geolocator = Nominatim(user_agent="geoapiExercises")
+
 
 load_dotenv()
 API_KEY=os.getenv("API_KEY")
